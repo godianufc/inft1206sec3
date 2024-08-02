@@ -1,7 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <!--
+        Name: Godian Erasenthiram
+        Student Number: 100877947
+        Section: 3
+        Date: 2024-07-25
+        Desrciption: Assignment 4
+    -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
@@ -42,8 +48,10 @@
       <input id="customname" type="text" placeholder="" />
     </div>
     <div>
-      <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked />
-      <label for="uk">UK</label><input id="uk" type="radio" name="ukus" value="uk" />
+      <label for="us">US</label>
+      <input id="us" type="radio" name="ukus" value="us" checked />
+      <label for="uk">UK</label>
+      <input id="uk" type="radio" name="ukus" value="uk" />
     </div>
     <div>
       <button class="randomize">Generate random story</button>
@@ -52,28 +60,14 @@
     <p class="story"></p>
 
     <script>
-      document.querySelector('.randomize').addEventListener('click', generateStory);
+      const customName = document.getElementById('customname');
+      const randomize = document.querySelector('.randomize');
+      const story = document.querySelector('.story');
 
-      function generateStory() {
-        const customName = document.getElementById('customname').value;
-        const usRadio = document.getElementById('us').checked;
-        const ukRadio = document.getElementById('uk').checked;
-
-        let storyText = "It was 94 fahrenheit outside, so Willy the Goblin went for a walk. When they got to the soup kitchen, they stared in horror for a few moments, then turned into a slug and crawled away. Bob saw the whole thing, but was not surprised — Willy the Goblin weighs 300 pounds, and it was a hot day.";
-
-        if (customName !== '') {
-          storyText = storyText.replace('Willy the Goblin', customName);
-        }
-
-        if (ukRadio) {
-          storyText = storyText.replace('94 fahrenheit', '34 centigrade');
-          storyText = storyText.replace('300 pounds', '21 stone');
-        }
-
-        document.querySelector('.story').textContent = storyText;
-        document.querySelector('.story').style.visibility = 'visible';
+      function randomValueFromArray(array) {
+        return array[Math.floor(Math.random() * array.length)];
       }
-    </script>
-  </body>
-</html>
 
+      const storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to the :inserty:, they stared in horror for a few moments, then turned into a slug and crawled away. :insertz: saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+
+      const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
